@@ -55,7 +55,7 @@ void rotate(int dim, pixel *src, pixel *dst)
     int i, j, i1, j1;
     int x = dim-1;
     int T = 16; 
-    pixel *tmp_dst = dst;
+    pixel *tmp_dst;
 
     for (j = 0; j < dim; j+=T)
         for (i = 0; i < dim; i+=T)
