@@ -101,8 +101,8 @@ void attempt_two(int dim, pixel *src, pixel *dst)
 /* 
  * third attempt (commented out for now)
  */
-char rotate_two_descr[] = "second attempt";
-void attempt_two(int dim, pixel *src, pixel *dst) 
+char rotate_three_descr[] = "second attempt";
+void attempt_three(int dim, pixel *src, pixel *dst) 
 {
     int i, j, i1, j1;
     int x = dim-1;
@@ -130,8 +130,8 @@ void register_rotate_functions()
     add_rotate_function(&naive_rotate, naive_rotate_descr);   
     add_rotate_function(&rotate, rotate_descr);   
     add_rotate_function(&attempt_two, rotate_two_descr);   
-    
-    //add_rotate_function(&attempt_three, rotate_three_descr);   
+    add_rotate_function(&attempt_three, rotate_three_descr);   
+
     //add_rotate_function(&attempt_four, rotate_four_descr);   
     //add_rotate_function(&attempt_five, rotate_five_descr);   
     //add_rotate_function(&attempt_six, rotate_six_descr);   
