@@ -54,7 +54,7 @@ void rotate(int dim, pixel *src, pixel *dst)
 {
     int i, j, i1, j1;
     int x = dim-1;
-    int T = 32;		
+    int T = 16;		
 
     for (j = 0; j < dim; j+=T)
         for (i = 0; i < dim; i+=T)
@@ -72,7 +72,7 @@ void attempt_two(int dim, pixel *src, pixel *dst)
 {
     int i, j, i1, j1;
     int x = dim-1;
-    int T = 32;     
+    int T = 16;     
 
     for (i = 0; i < dim; i+=T)
         for (j = 0; j < dim; j+=T)
