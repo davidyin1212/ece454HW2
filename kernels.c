@@ -66,12 +66,21 @@ void rotate(int dim, pixel *src, pixel *dst)
 
 /* 
  * second attempt (commented out for now)
+ */
 char rotate_two_descr[] = "second attempt";
 void attempt_two(int dim, pixel *src, pixel *dst) 
 {
-    naive_rotate(dim, src, dst);
+    int i, j, i1, j1;
+    int x = dim-1;
+    int T = 32;     
+
+    for (i = 0; i < dim; i+=T)
+        for (j = 0; j < dim; j+=T)
+            for (i1 = i; i1 < i + T; i1++)
+                for (j1 = j; j1 < j + T; j1++)      
+                    dst[RIDX(x - j1, i1, dim)] = src[RIDX(i1, j1, dim)];
 }
-*/
+
 
 
 /*********************************************************************
@@ -86,8 +95,8 @@ void register_rotate_functions()
 {
     add_rotate_function(&naive_rotate, naive_rotate_descr);   
     add_rotate_function(&rotate, rotate_descr);   
-
-    //add_rotate_function(&attempt_two, rotate_two_descr);   
+    add_rotate_function(&attempt_two, rotate_two_descr);   
+    
     //add_rotate_function(&attempt_three, rotate_three_descr);   
     //add_rotate_function(&attempt_four, rotate_four_descr);   
     //add_rotate_function(&attempt_five, rotate_five_descr);   
