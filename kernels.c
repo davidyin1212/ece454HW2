@@ -58,7 +58,7 @@ void rotate(int dim, pixel *src, pixel *dst)
 
     for (j = 0; j < dim; j+=T) {
         for (i = 0; i < dim; i+=T) {
-            for (i1 = i; i1 < i + T; i1++)      
+            for (i1 = i; i1 < i + T; i1++)    
                 dst[RIDX(x - j, i1, dim)] = src[RIDX(i1, j, dim)];
             for (i1 = i; i1 < i + T; i1++)      
                 dst[RIDX(x - j + 1, i1, dim)] = src[RIDX(i1, j + 1, dim)];
@@ -120,7 +120,7 @@ void attempt_three(int dim, pixel *src, pixel *dst)
 {
     int i, j, i1, j1;
     int x = dim-1;
-    int T = 16;     
+    int T = dim/4;     
 
     for (j = 0; j < dim; j+=T)
         for (i = 0; i < dim; i+=T)
