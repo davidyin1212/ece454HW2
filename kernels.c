@@ -52,7 +52,7 @@ void naive_rotate(int dim, pixel *src, pixel *dst)
 char rotate_descr[] = "rotate: Current working version";
 void rotate(int dim, pixel *src, pixel *dst) 
 {
-    int i, j, i1, j1;
+    int i, j, i1;
     int x = dim-1;
     int T = 16;
 
