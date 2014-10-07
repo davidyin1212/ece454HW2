@@ -122,9 +122,9 @@ void attempt_three(int dim, pixel *src, pixel *dst)
     int x = dim-1;
     int T = dim/4;     
 
-    for (j = 0; j < dim; j+=4)
+    for (j = 0; j < dim; j+=8)
         for (i = 0; i < dim; i+=T)
-            for (j1 = j; j1 < j + 4; j1++)
+            for (j1 = j; j1 < j + 8; j1++)
                 for (i1 = i; i1 < i + T; i1++)      
                     dst[RIDX(x - j1, i1, dim)] = src[RIDX(i1, j1, dim)];
 }
