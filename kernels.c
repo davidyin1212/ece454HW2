@@ -54,12 +54,21 @@ void rotate(int dim, pixel *src, pixel *dst)
 {
     int i, j, i1, j1;
     int x = dim-1;
-    int T = 256;
+    int T = 16;
 
     for (j = 0; j < dim; j+=T) {
-        for (i = 0; i < dim; i++) {
-            for (j1 = j; j1 < j + T; j1++)     
-                dst[RIDX(x - j1, i, dim)] = src[RIDX(i, j1, dim)];        }
+        for (i = 0; i < dim; i+=T) {
+            for (j1 = j; j1 < j + T; j1+=4) {  	
+                for (i1 = i; i1 < i + T; i1++)      
+                    dst[RIDX(x - j1, i1, dim)] = src[RIDX(i1, j1, dim)];
+                for (i1 = i; i1 < i + T; i1++)      
+                    dst[RIDX(x - j1 + 1, i1, dim)] = src[RIDX(i1, j1 + 1, dim)];
+                for (i1 = i; i1 < i + T; i1++)      
+                    dst[RIDX(x - j1 + 2, i1, dim)] = src[RIDX(i1, j1 + 2, dim)];
+                for (i1 = i; i1 < i + T; i1++)      
+                    dst[RIDX(x - j1 + 3, i1, dim)] = src[RIDX(i1, j1 + 3, dim)];
+            }
+        }
     }
 }
 
