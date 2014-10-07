@@ -55,27 +55,17 @@ void rotate(int dim, pixel *src, pixel *dst)
     int i, j, i1, j1;
     int x = dim-1;
     int T = 16;		
+    printf("%s\n", );
     pixel *dst_tmp = *dst;
 
     for (j = 0; j < dim; j+=T) {
         for (i = 0; i < dim; i+=T) {
             for (j1 = j; j1 < j + T; j1++) {  	
-                dst_tmp[RIDX(x - j1, i, dim)] = src[RIDX(i, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 1, dim)] = src[RIDX(i + 1, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 2, dim)] = src[RIDX(i + 2, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 3, dim)] = src[RIDX(i + 3, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 4, dim)] = src[RIDX(i + 4, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 5, dim)] = src[RIDX(i + 5, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 6, dim)] = src[RIDX(i + 6, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 7, dim)] = src[RIDX(i + 7, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 8, dim)] = src[RIDX(i + 8, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 9, dim)] = src[RIDX(i + 9, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 10, dim)] = src[RIDX(i + 10, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 11, dim)] = src[RIDX(i + 11, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 12, dim)] = src[RIDX(i + 12, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 13, dim)] = src[RIDX(i + 13, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 14, dim)] = src[RIDX(i + 14, j1, dim)];
-                dst_tmp[RIDX(x - j1, i + 15, dim)] = src[RIDX(i + 15, j1, dim)];
+                for (i1 = i; i1 < i + T; i1+=4)      
+                    dst[RIDX(x - j1, i1, dim)] = src[RIDX(i1, j1, dim)];
+                    dst[RIDX(x - j1, i1 + 1, dim)] = src[RIDX(i1 + 1, j1, dim)];
+                    dst[RIDX(x - j1, i1 + 2, dim)] = src[RIDX(i1 + 2, j1, dim)];
+                    dst[RIDX(x - j1, i1 + 3, dim)] = src[RIDX(i1 + 3, j1, dim)];
             }
         }
     }
