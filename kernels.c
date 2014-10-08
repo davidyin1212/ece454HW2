@@ -104,46 +104,16 @@ void attempt_three(int dim, pixel *src, pixel *dst)
 char rotate_four_descr[] = "fourth attempt";
 void attempt_four(int dim, pixel *src, pixel *dst) 
 {
-    int i, j, i1;
+    int i, j, i1, j1;
     int x = dim-1;
-    int T = 16;
+    int W = 8;
+    int L = 96;      
 
-    for (j = 0; j < dim; j+=T) {
-        for (i = 0; i < dim; i+=T) {
-            for (i1 = i; i1 < i + T; i1++)    
-                dst[RIDX(x - j, i1, dim)] = src[RIDX(i1, j, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 1, i1, dim)] = src[RIDX(i1, j + 1, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 2, i1, dim)] = src[RIDX(i1, j + 2, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 3, i1, dim)] = src[RIDX(i1, j + 3, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 4, i1, dim)] = src[RIDX(i1, j + 4, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 5, i1, dim)] = src[RIDX(i1, j + 5, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 6, i1, dim)] = src[RIDX(i1, j + 6, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 7, i1, dim)] = src[RIDX(i1, j + 7, dim)];  
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 8, i1, dim)] = src[RIDX(i1, j + 8, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 9, i1, dim)] = src[RIDX(i1, j + 9, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 10, i1, dim)] = src[RIDX(i1, j + 10, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 11, i1, dim)] = src[RIDX(i1, j + 11, dim)];  
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 12, i1, dim)] = src[RIDX(i1, j + 12, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 13, i1, dim)] = src[RIDX(i1, j + 13, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 14, i1, dim)] = src[RIDX(i1, j + 14, dim)];
-            for (i1 = i; i1 < i + T; i1++)      
-                dst[RIDX(x - j + 15, i1, dim)] = src[RIDX(i1, j + 15, dim)];   
-        }
-    }
+    for (j = 0; j < dim; j+=T)
+        for (i = 0; i < dim; i+=W)
+            for (j1 = j; j1 < j + T; j1++)
+                for (i1 = i; i1 < i + W; i1++)      
+                    dst[RIDX(x - j1, i1, dim)] = src[RIDX(i1, j1, dim)];
 }
     
 
