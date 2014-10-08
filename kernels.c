@@ -56,12 +56,13 @@ void rotate(int dim, pixel *src, pixel *dst)
 {
     int i, j, i1, j1;
     int x = dim-1;
-    int T = 16;     
+    int W = 8;
+    int L = 128;      
 
-    for (j = 0; j < dim; j+=T)
-        for (i = 0; i < dim; i+=T)
-            for (j1 = j; j1 < j + T; j1++)
-                for (i1 = i; i1 < i + T; i1++)      
+    for (j = 0; j < dim; j+=L)
+        for (i = 0; i < dim; i+=W)
+            for (j1 = j; j1 < MIN(dim, j + L); j1++)
+                for (i1 = i; i1 < MIN(dim, i + W); i1++) 
                     dst[RIDX(x - j1, i1, dim)] = src[RIDX(i1, j1, dim)];
 }
 
@@ -108,14 +109,12 @@ void attempt_four(int dim, pixel *src, pixel *dst)
 {
     int i, j, i1, j1;
     int x = dim-1;
-    int W = 8;
-    int L = 128;      
+    int T = 16;     
 
-    for (j = 0; j < dim; j+=L)
-        for (i = 0; i < dim; i+=W)
-            for (j1 = j; j1 < MIN(dim, j + L); j1++)
-                for (i1 = i; i1 < MIN(dim, i + W); i1++) 
-
+    for (j = 0; j < dim; j+=T)
+        for (i = 0; i < dim; i+=T)
+            for (j1 = j; j1 < j + T; j1++)
+                for (i1 = i; i1 < i + T; i1++)      
                     dst[RIDX(x - j1, i1, dim)] = src[RIDX(i1, j1, dim)];
 }
     
