@@ -111,8 +111,9 @@ void attempt_four(int dim, pixel *src, pixel *dst)
 
     for (j = 0; j < dim; j+=L)
         for (i = 0; i < dim; i+=W)
-            for (j1 = j; j1 < j + L; j1++)
-                for (i1 = i; i1 < i + W; i1++)      
+            for (j1 = j; j1 < MIN(dim, j + L); j1++)
+                for (i1 = i; i1 < MIN(dim, i + W); i1++) 
+
                     dst[RIDX(x - j1, i1, dim)] = src[RIDX(i1, j1, dim)];
 }
     
