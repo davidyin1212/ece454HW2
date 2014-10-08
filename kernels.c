@@ -107,7 +107,7 @@ void attempt_four(int dim, pixel *src, pixel *dst)
     int i, j, i1, j1;
     int x = dim-1;
     int W = 8;
-    int L = 96;      
+    int L = 64;      
 
     for (j = 0; j < dim; j+=L)
         for (i = 0; i < dim; i+=W)
