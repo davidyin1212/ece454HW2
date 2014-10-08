@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include "defs.h"
 
+#define MIN(X,Y)  ((X) < (Y) ? (X) : (Y))
+
 /* 
  * ECE454 Students: 
  * Please fill in the following team struct 
