@@ -79,8 +79,8 @@ void attempt_two(int dim, pixel *src, pixel *dst)
 
     for (i = 0; i < dim; i+=T)
         for (j = 0; j < dim; j+=T)
-            for (i1 = i; i1 < i + T; i1++)
-                for (j1 = j; j1 < j + T; j1++)      
+            for (i1 = i; i1 < MIN(dim, i + T); i1++)
+                for (j1 = j; j1 < MIN(dim, j + T); j1++)      
                     dst[RIDX(x - j1, i1, dim)] = src[RIDX(i1, j1, dim)];
 }
 
@@ -96,8 +96,8 @@ void attempt_three(int dim, pixel *src, pixel *dst)
 
     for (j = 0; j < dim; j+=8)
         for (i = 0; i < dim; i+=T)
-            for (j1 = j; j1 < j + 8; j1++)
-                for (i1 = i; i1 < i + T; i1++)      
+            for (j1 = j; j1 < MIN(dim, j + 8); j1++)
+                for (i1 = i; i1 < MIN(dim, i + T); i1++)      
                     dst[RIDX(x - j1, i1, dim)] = src[RIDX(i1, j1, dim)];
 }
 
@@ -113,8 +113,8 @@ void attempt_four(int dim, pixel *src, pixel *dst)
 
     for (j = 0; j < dim; j+=T)
         for (i = 0; i < dim; i+=T)
-            for (j1 = j; j1 < j + T; j1++)
-                for (i1 = i; i1 < i + T; i1++)      
+            for (j1 = j; j1 < MIN(dim, j + T); j1++)
+                for (i1 = i; i1 < MIN(dim, i + T); i1++)      
                     dst[RIDX(x - j1, i1, dim)] = src[RIDX(i1, j1, dim)];
 }
     
